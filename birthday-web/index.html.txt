@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Happy Birthday 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: cursive;
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 60px;
+      margin-top: 40px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 20px pink; }
+      to { text-shadow: 0 0 40px yellow; }
+    }
+    .surprise {
+      display: none;
+      font-size: 30px;
+      margin-top: 20px;
+      color: #ffeb3b;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 20px;
+      margin: 15px;
+      border: none;
+      border-radius: 10px;
+      background: gold;
+      cursor: pointer;
+    }
+    .slider {
+      width: 80%;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 20px black;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 15px;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Bestie 🎉</h1>
+  <p>May your day be full of joy & love 💖</p>
+
+  <!-- Surprise Button -->
+  <button onclick="showSurprise()">Click for Surprise 🎁</button>
+  <div class="surprise">You’re the STAR of the day 🌟</div>
+
+  <!-- Photo Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="bestie1.jpg" alt="Bestie Pic 1">
+      <img src="bestie2.jpg" alt="Bestie Pic 2">
+      <img src="bestie3.jpg" alt="Bestie Pic 3">
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="song" src="birthday_song.mp3"></audio>
+  <button onclick="playSong()">Play Birthday Song 🎶</button>
+
+  <script>
+    function showSurprise() {
+      document.querySelector('.surprise').style.display = 'block';
+      confetti();
+    }
+    function playSong() {
+      document.getElementById('song').play();
+    }
+    // Confetti effect
+    function confetti() {
+      for (let i = 0; i < 80; i++) {
+        let div = document.createElement('div');
+        div.innerHTML = "🎊";
+        div.style.position = "fixed";
+        div.style.left = Math.random() * window.innerWidth + "px";
+        div.style.top = "-20px";
+        div.style.fontSize = "20px";
+        div.style.animation = "fall 3s linear forwards";
+        document.body.appendChild(div);
+        setTimeout(() => div.remove(), 3000);
+      }
+    }
+  </script>
+  <style>
+    @keyframes fall {
+      to { transform: translateY(100vh); }
+    }
+  </style>
+</body>
+</html>
